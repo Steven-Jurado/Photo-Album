@@ -1,0 +1,35 @@
+{% extends "_Layout.twig" %}
+
+{% block header %}
+	<nav class="navbar navbar-light bg-light">
+	<div class="container-fluid">
+		{% for user in users %}
+			<h1 class="h1"> Hi  {{user.username}} look at your photo album </h1>
+		{% endfor %}
+		<a class="navbar-brand" href="/logout">Log out</a>
+	</div>
+	</nav>
+{% endblock %}
+
+{% block content %}
+	<form action="/" method="post" enctype="multipart/form-data" class="mt-5 mb-5" >
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<input type="file" class="form-control" name="file">
+				</div>
+				<div class="col-sm-4">
+					<input type="submit" class="btn bt-lg btn-success" value="Upload">
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="container-fluid d-print-inline-block mx-5" >
+		{% for img in imgs %}
+		<figure class="figure">
+			<img class="img-thumbnail ms-3" src="../{{img.file}}" alt="Imagenes" width="400px" height="400px">
+			
+		</figure>
+		{% endfor %}
+	<div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "_Layout.twig" %}
+{% block content %}
+	{% if respondMessageError %}
+		<div class="alert alert-danger alert-dismissible mt-5" role="alert">
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			{{respondMessageError}}
+		</div>
+	{% endif %}
+	<form action="/login" method="post">
+		<div class="row  ">
+			<div class="col-sm-6 ">
+				<img src="../img/Loading.png" alt="Logo">
+			</div>
+			<div class="col-sm-6 align-self-center">
+				<div class="form-group">
+						<label for="user" class="mb-2 mt-3">User Name</label>
+						<input type="text" name="username" id="user" class="form-control" placeholder="Enter your Username" required>
+					</div>
+				<div class="form-group">
+					<label for="password" class="mb-2 mt-3">Password</label>
+					<input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
+				</div>
+				<div class="d-grid gap-2">
+					<input type="submit" value="Log In " class="btn btn-lg btn-success mt-3">
+					<a class="btn btn-lg btn-primary" href="/register">Register</a>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock %}
